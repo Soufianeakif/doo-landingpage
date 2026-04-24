@@ -52,7 +52,19 @@
   },
   "testimonials": {
     "title": "What Our Clients Say",
-    "description": "Hear from those who have partnered with us."
+    "description": "Hear from those who have partnered with us.",
+    "person1": {
+      "role": "Homeowner in Rabat",
+      "message": "I used Doo.ma to find a plumber during an emergency. The response was incredibly fast, and the quality of work was professional. It's finally great to have a reliable way to find 'Maâlems' in Morocco."
+    },
+    "person2": {
+      "role": "Freelance Interior Designer",
+      "message": "As a busy professional, I don't have time to search for reliable cleaners. Doo.ma has been a lifesaver. The app is seamless, and I love that I can track the professional's arrival in real-time."
+    },
+    "person3": {
+      "role": "Professional Electrician",
+      "message": "Joining Doo.ma as a service provider has helped me reach more clients in Harhoura and Rabat without any marketing costs. The platform handles the bookings, so I can focus on doing my job."
+    }
   },
   "faq": {
     "title": "Frequently Asked Questions",

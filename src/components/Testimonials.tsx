@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { testimonials } from '@/data/testimonials';
 
 const containerVariants = {
@@ -34,6 +35,14 @@ const cardVariants = {
 };
 
 const Testimonials: React.FC = () => {
+    const t = useTranslations('testimonials');
+    
+    const translatedTestimonials = testimonials.map((testimonial, index) => ({
+        ...testimonial,
+        role: t(`person${index + 1}.role`),
+        message: t(`person${index + 1}.message`),
+    }));
+    
     return (
         <motion.div 
             className="grid gap-14 max-w-lg w-full mx-auto lg:gap-8 lg:grid-cols-3 lg:max-w-full"
@@ -42,7 +51,7 @@ const Testimonials: React.FC = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
         >
-            {testimonials.map((testimonial, index) => (
+            {translatedTestimonials.map((testimonial, index) => (
                 <motion.div
                     key={index}
                     variants={cardVariants}

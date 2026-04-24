@@ -52,7 +52,19 @@
   },
   "testimonials": {
     "title": "Ce Que Disent Nos Clients",
-    "description": "Écoutez ceux qui ont collaboré avec nous."
+    "description": "Écoutez ceux qui ont collaboré avec nous.",
+    "person1": {
+      "role": "Propriétaire à Rabat",
+      "message": "J'ai utilisé Doo.ma pour trouver un plombier en urgence. La réponse a été incroyablement rapide et la qualité du travail était professionnelle. C'est enfin formidable d'avoir un moyen fiable de trouver des 'Maâlems' au Maroc."
+    },
+    "person2": {
+      "role": "Designer d'Intérieur Freelance",
+      "message": "En tant que professionnelle occupée, je n'ai pas le temps de chercher des nettoyeurs fiables. Doo.ma a été un sauveur. L'application est fluide et j'adore pouvoir suivre l'arrivée du professionnel en temps réel."
+    },
+    "person3": {
+      "role": "Électricien Professionnel",
+      "message": "Rejoindre Doo.ma en tant que prestataire de services m'a aidé à atteindre plus de clients à Harhoura et Rabat sans aucun coût marketing. La plateforme gère les réservations, donc je peux me concentrer sur mon travail."
+    }
   },
   "faq": {
     "title": "Questions Fréquemment Posées",
