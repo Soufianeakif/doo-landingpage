@@ -75,14 +75,14 @@ const Testimonials: React.FC = () => {
                                     className="rounded-full shadow-md"
                                 />
                             </motion.div>
-                            <div className="ml-4">
+                            <div className="ms-4">
                                 <h3 className="text-lg font-semibold text-[#FC5E0E]">{testimonial.name}</h3>
                                 <p className="text-sm text-foreground-accent">{testimonial.role}</p>
                             </div>
                         </motion.div>
                         
                         <motion.p 
-                            className="text-foreground-accent text-center lg:text-left italic"
+                            className="text-foreground-accent text-center lg:text-start italic"
                             initial={{ opacity: 0.8 }}
                             whileInView={{ opacity: 1 }}
                         >
@@ -91,7 +91,7 @@ const Testimonials: React.FC = () => {
                         
                         {/* Quote decoration */}
                         <motion.div
-                            className="absolute top-4 right-4 text-6xl text-[#FA5F0E]/10 font-serif leading-none select-none"
+                            className="absolute top-4 end-4 text-6xl text-[#FA5F0E]/10 font-serif leading-none select-none"
                             animate={{ 
                                 y: [0, -3, 0],
                                 opacity: [0.1, 0.2, 0.1],

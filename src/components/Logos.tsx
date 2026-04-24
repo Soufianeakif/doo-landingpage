@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTranslations } from 'next-intl';
 
 const Logos: React.FC = () => {
+    const t = useTranslations('logos');
     return (
         <section id="logos" className="py-20 px-5 bg-background">
             <motion.div 
@@ -49,9 +51,9 @@ const Logos: React.FC = () => {
                         whileHover={{ scale: 1.05 }}
                         transition={{ type: "spring", stiffness: 400 }}
                     >
-                        Available now
+                        {t('available')}
                     </motion.span>{" "}
-                    in Rabat, Salé, Témara & Harhoura
+                    {t('cities')}
                 </motion.p>
 
                 <motion.p 
@@ -65,7 +67,7 @@ const Logos: React.FC = () => {
                         animate={{ opacity: [0.5, 1, 0.5] }}
                         transition={{ duration: 2, repeat: Infinity }}
                     >
-                        More cities coming soon across Morocco 🇲🇦
+                        {t('comingSoon')}
                     </motion.span>
                 </motion.p>
 

@@ -3,11 +3,10 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 import AppStoreButton from './AppStoreButton';
 import PlayStoreButton from './PlayStoreButton';
-
-import { heroDetails } from '@/data/hero';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -52,6 +51,7 @@ const glowPulse = {
 };
 
 const Hero: React.FC = () => {
+    const t = useTranslations('hero');
     return (
         <section
             id="hero"
@@ -110,14 +110,14 @@ const Hero: React.FC = () => {
                     className="text-4xl md:text-6xl md:leading-tight font-bold text-foreground max-w-lg md:max-w-2xl mx-auto"
                     variants={itemVariants}
                 >
-                    {heroDetails.heading}
+                    {t('heading')}
                 </motion.h1>
                 
                 <motion.p 
                     className="mt-4 text-foreground max-w-lg mx-auto"
                     variants={itemVariants}
                 >
-                    {heroDetails.subheading}
+                    {t('subheading')}
                 </motion.p>
                 
                 <motion.div 
@@ -138,7 +138,7 @@ const Hero: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.3 }}
                 >
                     <Image
-                        src={heroDetails.centerImageSrc}
+                        src="/images/hero-mockup.webp"
                         width={384}
                         height={340}
                         quality={100}

@@ -1,16 +1,21 @@
+'use client';
+
 import React from 'react'
 import clsx from 'clsx'
+import { useTranslations } from 'next-intl';
 
 import { ctaDetails } from '@/data/cta'
 
 const PlayStoreButton = ({ dark }: { dark?: boolean }) => {
+    const t = useTranslations('buttons');
+    
     return (
         <a href={ctaDetails.googlePlayUrl}>
             <button
                 type="button"
                 className={clsx("flex items-center justify-center min-w-[205px] mt-3 px-6 h-14 rounded-full w-full sm:w-fit", { "text-white bg-foreground": dark, "text-foreground bg-white": !dark })}
             >
-                <div className="mr-3">
+                <div className="ms-3 me-3">
                     <svg viewBox="30 336.7 120.9 129.2" width="30">
                         <path fill="#FFD400" d="M119.2,421.2c15.3-8.4,27-14.8,28-15.3c3.2-1.7,6.5-6.2,0-9.7  c-2.1-1.1-13.4-7.3-28-15.3l-20.1,20.2L119.2,421.2z">
                         </path>
@@ -22,9 +27,9 @@ const PlayStoreButton = ({ dark }: { dark?: boolean }) => {
                         </path>
                     </svg>
                 </div>
-                <div>
+                <div className="text-start">
                     <div className="text-xs">
-                        GET IT ON
+                        {t('playStore')}
                     </div>
                     <div className="-mt-1 font-sans text-xl font-semibold">
                         Google Play

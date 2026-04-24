@@ -1,22 +1,31 @@
 'use client';
 
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import React, { useState, useCallback } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
 import { Transition } from '@headlessui/react';
 import { HiOutlineXMark, HiBars3 } from 'react-icons/hi2';
 import Image from 'next/image';
 
 
 import Container from './Container';
+import LanguageSwitcher from './LanguageSwitcher';
 import { siteDetails } from '@/data/siteDetails';
-import { menuItems } from '@/data/menuItems';
 
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const t = useTranslations('nav');
+    const locale = useLocale();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
+
+    // Define menu items with translations
+    const menuItems = [
+        { text: t('features'), url: '#features' },
+        { text: t('testimonials'), url: '#testimonials' },
+    ];
 
     // Smooth scroll handler for anchor links
     const handleSmoothScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -54,7 +63,7 @@ const Header: React.FC = () => {
                     </Link>
 
                     {/* Desktop Menu */}
-                    <ul className="hidden md:flex space-x-6">
+                    <ul className="hidden md:flex items-center gap-6">
                         {menuItems.map(item => (
                             <li key={item.text}>
                                 <Link 
@@ -72,8 +81,11 @@ const Header: React.FC = () => {
                                 className="text-white bg-[#FA5F0E] hover:bg-[#f47d42] px-8 py-3 rounded-full transition-colors"
                                 onClick={(e) => handleSmoothScroll(e, '#cta')}
                             >
-                                Download
+                                {t('download')}
                             </Link>
+                        </li>
+                        <li>
+                            <LanguageSwitcher />
                         </li>
                     </ul>
 
@@ -126,8 +138,11 @@ const Header: React.FC = () => {
                                 className="text-black bg-[#FA5F0E] hover:bg-[#f47d42] px-5 py-2 rounded-full block w-fit" 
                                 onClick={(e) => handleSmoothScroll(e, '#cta')}
                             >
-                                Download
+                                {t('download')}
                             </Link>
+                        </li>
+                        <li className="pt-2">
+                            <LanguageSwitcher />
                         </li>
                     </ul>
                 </div>

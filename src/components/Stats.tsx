@@ -1,8 +1,11 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-import { stats } from "@/data/stats";
+import { MdVerifiedUser } from "react-icons/md";
+import { BsFillStarFill } from "react-icons/bs";
+import { HiOutlineClock } from "react-icons/hi";
 
 // Animated counter hook
 const useCountUp = (end: number, duration: number = 2, start: boolean = false) => {
@@ -37,7 +40,7 @@ const useCountUp = (end: number, duration: number = 2, start: boolean = false) =
     return count;
 };
 
-const AnimatedStat = ({ stat, index }: { stat: typeof stats[0]; index: number }) => {
+const AnimatedStat = ({ stat, index, t }: { stat: any; index: number; t: any }) => {
     const [isInView, setIsInView] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
     
@@ -90,7 +93,7 @@ const AnimatedStat = ({ stat, index }: { stat: typeof stats[0]; index: number })
                 >
                     {stat.icon}
                 </motion.span>
-                <span>{animatedTitle}</span>
+                <span>{stat.title}</span>
             </motion.h3>
             <p className="text-foreground-accent">{stat.description}</p>
         </motion.div>
@@ -98,6 +101,26 @@ const AnimatedStat = ({ stat, index }: { stat: typeof stats[0]; index: number })
 };
 
 const Stats: React.FC = () => {
+    const t = useTranslations('stats');
+    
+    const stats = [
+        {
+            title: "100+",
+            icon: <MdVerifiedUser size={34} className="text-orange-500" />,
+            description: t('verified')
+        },
+        {
+            title: "5.0",
+            icon: <BsFillStarFill size={34} className="text-yellow-500" />,
+            description: t('rating')
+        },
+        {
+            title: "30 min",
+            icon: <HiOutlineClock size={34} className="text-blue-500" />,
+            description: t('response')
+        }
+    ];
+    
     return (
         <section id="stats" className="py-10 lg:py-20">
             <motion.div 
@@ -107,7 +130,7 @@ const Stats: React.FC = () => {
                 viewport={{ once: true, margin: "-100px" }}
             >
                 {stats.map((stat, index) => (
-                    <AnimatedStat key={stat.title} stat={stat} index={index} />
+                    <AnimatedStat key={stat.title} stat={stat} index={index} t={t} />
                 ))}
             </motion.div>
         </section>

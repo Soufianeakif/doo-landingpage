@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "features": "Features",
+    "testimonials": "Testimonials",
+    "download": "Download"
+  },
+  "hero": {
+    "heading": "Smart, Reliable, and Simple Home Services",
+    "subheading": "Instantly book trusted local professionals for cleaning, plumbing, and more. From upfront pricing to real-time tracking, Doo puts you in full control of your home."
+  },
+  "logos": {
+    "available": "Available now",
+    "cities": "in Rabat, Salé, Témara & Harhoura",
+    "comingSoon": "More cities coming soon across Morocco 🇲🇦"
+  },
+  "benefits": {
+    "effortlessBooking": {
+      "title": "Effortless Booking",
+      "description": "Stop wasting time searching for phone numbers. Doo.ma connects you with the best local professionals in seconds through a seamless digital experience.",
+      "realTime": "Real-Time Tracking",
+      "realTimeDesc": "Watch your service provider's arrival on the map in real-time.",
+      "matching": "Instant Matching",
+      "matchingDesc": "Our algorithm finds the nearest available 'Maâlem' for your urgent needs.",
+      "scheduled": "Scheduled Services",
+      "scheduledDesc": "Book for now or schedule a visit for later at your convenience."
+    },
+    "trusted": {
+      "title": "Trusted Professionals",
+      "description": "Quality and safety are our top priorities. Every professional on Doo.ma is manually vetted to ensure peace of mind for your home.",
+      "verified": "Verified Backgrounds",
+      "verifiedDesc": "Rigorous identity and criminal record checks for every provider.",
+      "rated": "Top-Rated Quality",
+      "ratedDesc": "Access a community-driven rating system to choose the best experts.",
+      "guarantee": "Service Guarantee",
+      "guaranteeDesc": "We stand behind the work. Your satisfaction is our primary goal."
+    },
+    "payments": {
+      "title": "Secure & Flexible Payments",
+      "description": "Experience transparent pricing with no hidden fees. Choose the payment method that suits your lifestyle in Morocco.",
+      "upfront": "Upfront Pricing",
+      "upfrontDesc": "Know the estimated cost before the work even begins.",
+      "cash": "Cash or Card",
+      "cashDesc": "Pay securely via the app or choose cash after the job is done.",
+      "secure": "Secure Transactions",
+      "secureDesc": "Advanced encryption to protect your digital payments and history."
+    }
+  },
+  "stats": {
+    "verified": "Verified professionals ready to serve you in Rabat and Harhoura.",
+    "rating": "Customer rating, reflecting our commitment to quality and trust.",
+    "response": "Average response time to connect you with a service provider."
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "description": "Hear from those who have partnered with us."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "FAQ'S",
+    "ask": "Ask us anything!",
+    "q1": "Is Doo.ma safe to use?",
+    "a1": "Absolutely. Every service provider on our platform undergoes a rigorous background check and identity verification. We also use secure encrypted systems to handle your data and service history.",
+    "q2": "How do I book a professional on Doo.ma?",
+    "a2": "It's simple! Choose the service you need, select your location, and browse through available professionals. Once you find the right match, you can book them instantly with just one click.",
+    "q3": "Are the prices fixed or can I negotiate?",
+    "a3": "Transparency is key at Doo.ma. We provide estimated upfront pricing for most services. For more complex tasks, you can get a detailed quote directly from the professional before the work begins.",
+    "q4": "What if I'm not satisfied with the service?",
+    "a4": "Your satisfaction is our priority. If the job doesn't meet your expectations, our support team will step in to ensure the issue is resolved. We also have a rating system to maintain high-quality standards.",
+    "q5": "How do I pay for the services?",
+    "a5": "We offer flexible payment options. You can pay securely through the Doo.ma app using your card, or choose the 'Cash on Delivery' option after the service is successfully completed."
+  },
+  "cta": {
+    "heading": "Experience the Future of Home Services in Morocco",
+    "subheading": "Ready to simplify your daily life? Download Doo today and experience the most reliable way to book home services at your fingertips."
+  },
+  "footer": {
+    "subheading": "Bridging the gap between professional expertise and modern convenience: You click, we do.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact"
+  },
+  "buttons": {
+    "appStore": "Download on the",
+    "playStore": "GET IT ON"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "features": "Fonctionnalités",
+    "testimonials": "Témoignages",
+    "download": "Télécharger"
+  },
+  "hero": {
+    "heading": "Services Domestiques Intelligents, Fiables et Simples",
+    "subheading": "Réservez instantanément des professionnels locaux de confiance pour le nettoyage, la plomberie et plus encore. Des prix transparents au suivi en temps réel, Doo vous donne le contrôle total de votre domicile."
+  },
+  "logos": {
+    "available": "Disponible maintenant",
+    "cities": "à Rabat, Salé, Témara & Harhoura",
+    "comingSoon": "Plus de villes bientôt à travers le Maroc 🇲🇦"
+  },
+  "benefits": {
+    "effortlessBooking": {
+      "title": "Réservation Sans Effort",
+      "description": "Arrêtez de perdre du temps à chercher des numéros de téléphone. Doo.ma vous connecte avec les meilleurs professionnels locaux en quelques secondes grâce à une expérience digitale fluide.",
+      "realTime": "Suivi en Temps Réel",
+      "realTimeDesc": "Suivez l'arrivée de votre prestataire sur la carte en temps réel.",
+      "matching": "Correspondance Instantanée",
+      "matchingDesc": "Notre algorithme trouve le 'Maâlem' disponible le plus proche pour vos besoins urgents.",
+      "scheduled": "Services Programmés",
+      "scheduledDesc": "Réservez maintenant ou planifiez une visite pour plus tard à votre convenance."
+    },
+    "trusted": {
+      "title": "Professionnels de Confiance",
+      "description": "La qualité et la sécurité sont nos priorités. Chaque professionnel sur Doo.ma est vérifié manuellement pour assurer votre tranquillité d'esprit.",
+      "verified": "Antécédents Vérifiés",
+      "verifiedDesc": "Vérification rigoureuse de l'identité et du casier judiciaire pour chaque prestataire.",
+      "rated": "Qualité Top Noté",
+      "ratedDesc": "Accédez à un système de notation communautaire pour choisir les meilleurs experts.",
+      "guarantee": "Garantie de Service",
+      "guaranteeDesc": "Nous nous engageons sur la qualité. Votre satisfaction est notre objectif principal."
+    },
+    "payments": {
+      "title": "Paiements Sécurisés & Flexibles",
+      "description": "Profitez de prix transparents sans frais cachés. Choisissez le mode de paiement qui correspond à votre style de vie au Maroc.",
+      "upfront": "Prix Transparent",
+      "upfrontDesc": "Connaissez le coût estimé avant même que le travail ne commence.",
+      "cash": "Espèces ou Carte",
+      "cashDesc": "Payez en toute sécurité via l'application ou choisissez le cash après la prestation.",
+      "secure": "Transactions Sécurisées",
+      "secureDesc": "Cryptage avancé pour protéger vos paiements numériques et votre historique."
+    }
+  },
+  "stats": {
+    "verified": "Professionnels vérifiés prêts à vous servir à Rabat et Harhoura.",
+    "rating": "Évaluation client, reflétant notre engagement envers la qualité et la confiance.",
+    "response": "Temps de réponse moyen pour vous connecter avec un prestataire de services."
+  },
+  "testimonials": {
+    "title": "Ce Que Disent Nos Clients",
+    "description": "Écoutez ceux qui ont collaboré avec nous."
+  },
+  "faq": {
+    "title": "Questions Fréquemment Posées",
+    "subtitle": "FAQ",
+    "ask": "Demandez-nous tout!",
+    "q1": "Est-ce que Doo.ma est sûr à utiliser?",
+    "a1": "Absolument. Chaque prestataire sur notre plateforme passe par une vérification rigoureuse des antécédents et une vérification d'identité. Nous utilisons également des systèmes cryptés sécurisés pour gérer vos données et votre historique de services.",
+    "q2": "Comment réserver un professionnel sur Doo.ma?",
+    "a2": "C'est simple! Choisissez le service dont vous avez besoin, sélectionnez votre localisation, et parcourez les professionnels disponibles. Une fois que vous trouvez la bonne personne, vous pouvez la réserver instantanément en un seul clic.",
+    "q3": "Les prix sont-ils fixes ou puis-je négocier?",
+    "a3": "La transparence est essentielle chez Doo.ma. Nous fournissons des prix estimés à l'avance pour la plupart des services. Pour les tâches plus complexes, vous pouvez obtenir un devis détaillé directement du professionnel avant le début des travaux.",
+    "q4": "Que se passe-t-il si je ne suis pas satisfait du service?",
+    "a4": "Votre satisfaction est notre priorité. Si le travail ne correspond pas à vos attentes, notre équipe de support interviendra pour résoudre le problème. Nous avons également un système de notation pour maintenir des standards de qualité élevés.",
+    "q5": "Comment payer pour les services?",
+    "a5": "Nous offrons des options de paiement flexibles. Vous pouvez payer en toute sécurité via l'application Doo.ma avec votre carte, ou choisir l'option 'Paiement à la Livraison' après que le service soit terminé avec succès."
+  },
+  "cta": {
+    "heading": "Découvrez l'Avenir des Services Domestiques au Maroc",
+    "subheading": "Prêt à simplifier votre quotidien? Téléchargez Doo aujourd'hui et découvrez la façon la plus fiable de réserver des services domestiques à portée de main."
+  },
+  "footer": {
+    "subheading": "Combler le fossé entre l'expertise professionnelle et la commodité moderne: Vous cliquez, nous faisons.",
+    "quickLinks": "Liens Rapides",
+    "contact": "Contact"
+  },
+  "buttons": {
+    "appStore": "Télécharger sur",
+    "playStore": "DISPONIBLE SUR"
+  }
+}

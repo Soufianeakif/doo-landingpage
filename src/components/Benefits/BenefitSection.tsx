@@ -2,14 +2,21 @@
 import Image from "next/image";
 import clsx from "clsx";
 import { motion, Variants } from "framer-motion"
+import { useTranslations } from 'next-intl';
 
 import BenefitBullet from "./BenefitBullet";
 import SectionTitle from "../SectionTitle";
-import { IBenefit } from "@/types";
+
+interface Bullet {
+    icon: JSX.Element;
+    key: string;
+}
 
 interface Props {
-    benefit: IBenefit;
-    imageAtRight?: boolean;
+    benefitKey: string;
+    bullets: Bullet[];
+    imageSrc: string;
+    reversed?: boolean;
 }
 
 const containerVariants: Variants = {
@@ -46,49 +53,54 @@ export const childVariants = {
     },
 };
 
-const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }: Props) => {
-    const { title, description, imageSrc, bullets } = benefit;
+const BenefitSection: React.FC<Props> = ({ benefitKey, bullets, imageSrc, reversed }: Props) => {
+    const t = useTranslations(`benefits.${benefitKey}`);
 
     return (
         <section className="benefit-section">
             <motion.div
-                className="flex flex-wrap flex-col items-center justify-center gap-2 lg:flex-row lg:gap-20 lg:flex-nowrap mb-24"
+                className={clsx(
+                    "flex flex-wrap flex-col items-center justify-center gap-2 lg:flex-row lg:gap-20 lg:flex-nowrap mb-24",
+                    { "lg:flex-row-reverse": reversed }
+                )}
                 variants={containerVariants}
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true }}
             >
-                <div
-                    className={clsx("flex flex-wrap items-center w-full max-w-lg", { "justify-start": imageAtRight, "lg:order-1 justify-end": !imageAtRight })}
-                    
-                >
-                    <div className="w-full  text-center lg:text-left ">
+                <div className="flex flex-wrap items-center w-full max-w-lg">
+                    <div className="w-full text-center lg:text-start">
                         <motion.div
                             className="flex flex-col w-full"
                             variants={childVariants}
                         >
                             <SectionTitle>
                                 <h3 className="lg:max-w-2xl">
-                                    {title}
+                                    {t('title')}
                                 </h3>
                             </SectionTitle>
 
-                            <p className="mt-1.5 mx-auto lg:ml-0 leading-normal text-foreground-accent">
-                                {description}
+                            <p className="mt-1.5 mx-auto lg:mx-0 leading-normal text-foreground-accent">
+                                {t('description')}
                             </p>
                         </motion.div>
 
-                        <div className="mx-auto lg:ml-0 w-full">
+                        <div className="mx-auto lg:mx-0 w-full">
                             {bullets.map((item, index) => (
-                                <BenefitBullet key={index} title={item.title} icon={item.icon} description={item.description} />
+                                <BenefitBullet 
+                                    key={index} 
+                                    title={t(`${item.key}`)} 
+                                    icon={item.icon} 
+                                    description={t(`${item.key}Desc`)} 
+                                />
                             ))}
                         </div>
                     </div>
                 </div>
 
-                <div className={clsx("mt-5 lg:mt-0", { "lg:order-2": imageAtRight })}>
-                    <div className={clsx("w-fit flex", { "justify-start": imageAtRight, "justify-end": !imageAtRight })}>
-                        <Image src={imageSrc} alt="title" width="384" height="762" quality={100} className="lg:ml-0" />
+                <div className="mt-5 lg:mt-0">
+                    <div className="w-fit flex justify-center">
+                        <Image src={imageSrc} alt={t('title')} width="384" height="762" quality={100} />
                     </div>
                 </div>
             </motion.div>

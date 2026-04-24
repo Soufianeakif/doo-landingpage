@@ -1,12 +1,13 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { motion } from "framer-motion";
-import { ctaDetails } from "@/data/cta";
 
 import AppStoreButton from "./AppStoreButton";
 import PlayStoreButton from "./PlayStoreButton";
 
 const CTA: React.FC = () => {
+    const t = useTranslations('cta');
     return (
         <section id="cta" className="mt-10 mb-5 lg:my-20">
             <motion.div 
@@ -66,7 +67,7 @@ const CTA: React.FC = () => {
                             viewport={{ once: true }}
                             transition={{ delay: 0.2, duration: 0.6 }}
                         >
-                            {ctaDetails.heading}
+                            {t('heading')}
                         </motion.h2>
 
                         <motion.p 
@@ -76,7 +77,7 @@ const CTA: React.FC = () => {
                             viewport={{ once: true }}
                             transition={{ delay: 0.3, duration: 0.6 }}
                         >
-                            {ctaDetails.subheading}
+                            {t('subheading')}
                         </motion.p>
 
                         <motion.div 

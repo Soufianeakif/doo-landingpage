@@ -1,11 +1,11 @@
 "use client";
 
+import { useTranslations } from 'next-intl';
 import { motion } from "framer-motion";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import { BiMinus, BiPlus } from "react-icons/bi";
 
 import SectionTitle from "./SectionTitle";
-import { faqs } from "@/data/faq";
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -31,6 +31,16 @@ const itemVariants = {
 };
 
 const FAQ: React.FC = () => {
+    const t = useTranslations('faq');
+    
+    const faqItems = [
+        { q: t('q1'), a: t('a1') },
+        { q: t('q2'), a: t('a2') },
+        { q: t('q3'), a: t('a3') },
+        { q: t('q4'), a: t('a4') },
+        { q: t('q5'), a: t('a5') },
+    ];
+    
     return (
         <section id="faq" className="py-10 lg:py-20">
             <div className="flex flex-col lg:flex-row gap-10">
@@ -49,7 +59,7 @@ const FAQ: React.FC = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
                     >
-                        FAQ&apos;S
+                        {t('subtitle')}
                     </motion.p>
                     <SectionTitle>
                         <motion.h2 
@@ -59,7 +69,7 @@ const FAQ: React.FC = () => {
                             viewport={{ once: true }}
                             transition={{ delay: 0.3, duration: 0.5 }}
                         >
-                            Frequently Asked Questions
+                            {t('title')}
                         </motion.h2>
                     </SectionTitle>
                     <motion.p 
@@ -69,7 +79,7 @@ const FAQ: React.FC = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 0.4 }}
                     >
-                        Ask us anything!
+                        {t('ask')}
                     </motion.p>
                     <motion.a 
                         href="mailto:contact@doo.ma" 
@@ -93,7 +103,7 @@ const FAQ: React.FC = () => {
                     whileInView="visible"
                     viewport={{ once: true, margin: "-50px" }}
                 >
-                    {faqs.map((faq, index) => (
+                    {faqItems.map((faq, index) => (
                         <motion.div 
                             key={index} 
                             className="mb-7"
@@ -109,7 +119,7 @@ const FAQ: React.FC = () => {
                                             transition={{ type: "spring", stiffness: 400 }}
                                         >
                                             <span className="text-2xl font-semibold group-hover:text-[#FA5F0E] transition-colors duration-300">
-                                                {faq.question}
+                                                {faq.q}
                                             </span>
                                             <motion.span
                                                 animate={{ rotate: open ? 180 : 0 }}
@@ -128,7 +138,7 @@ const FAQ: React.FC = () => {
                                             className="overflow-hidden"
                                         >
                                             <DisclosurePanel className="px-4 pt-4 pb-2 text-foreground-accent" static>
-                                                {faq.answer}
+                                                {faq.a}
                                             </DisclosurePanel>
                                         </motion.div>
                                     </>
