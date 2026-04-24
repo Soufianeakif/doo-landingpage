@@ -14,6 +14,27 @@
 - **Framer Motion** - Smooth animations and transitions
 - **React Icons** - Comprehensive icon library
 - **Headless UI** - Accessible UI components
+- **Lenis** - Buttery smooth scroll (optional)
+
+---
+
+## Features
+
+### Animations & Interactions
+- **Hero Section** - Floating mockup animation, bouncing particles, pulsing background glow
+- **Stats** - Count-up numbers on scroll, hover lift effects, icon wiggle animations
+- **CTA** - Radial gradient pulse, orange glow effect, moving background pattern
+- **Testimonials** - Card hover lift + glow, floating quote marks, staggered reveal
+- **Logos** - Bouncing Morocco flag, pulsing city indicators, animated text reveal
+- **FAQ** - Smooth accordion animations, hover effects, staggered entrance
+- **Navigation** - Smooth scroll on anchor links (desktop & mobile)
+
+### UI/UX Highlights
+- Morocco-focused design with animated flag and city badges
+- Dark mode support across all components
+- Fully responsive layout (mobile-first)
+- Accessible UI components (Headless UI)
+- External image support configured (Flaticon, etc.)
 
 ---
 
@@ -94,13 +115,18 @@ Edit files in `src/data/` to customize:
 - `stats.tsx` - Statistics numbers
 - `testimonials.tsx` - Customer reviews
 - `faq.tsx` - FAQ items
+- `hero.ts` - Hero heading and subheading
 
-### 3. Styling
+### 3. Available Cities
+Update city badges in `src/components/Logos.tsx`. Currently showing:
+- Rabat, Salé, Témara, Harhoura
+
+### 4. Styling
 - Global styles: `src/app/globals.css`
 - Tailwind config: `tailwind.config.ts`
 - Theme colors and fonts can be customized there
 
-### 4. Images & Assets
+### 5. Images & Assets
 - Place images in `public/images/`
 - Update logo: `public/images/logo.png`
 - Favicon: `src/app/favicon.ico`
@@ -136,13 +162,13 @@ Build output is in `.next/` directory. Configure your platform to use Next.js de
 
 | Section | File | Description |
 |---------|------|-------------|
-| Hero | `Hero.tsx` | Main banner with CTA |
-| Logos | `Logos.tsx` | Partner/client logos |
-| Benefits | `Benefits/` | Service features |
-| Testimonials | `Testimonials.tsx` | Customer reviews |
-| FAQ | `FAQ.tsx` | Questions & answers |
-| Stats | `Stats.tsx` | Key metrics |
-| CTA | `CTA.tsx` | Call to action |
+| Hero | `Hero.tsx` | Main banner with CTA & floating animations |
+| Logos | `Logos.tsx` | Morocco cities availability (Rabat, Salé, Témara, Harhoura) |
+| Benefits | `Benefits/` | Service features with scroll animations |
+| Testimonials | `Testimonials.tsx` | Customer reviews with hover effects |
+| FAQ | `FAQ.tsx` | Animated accordion Q&A |
+| Stats | `Stats.tsx` | Animated count-up metrics |
+| CTA | `CTA.tsx` | Call to action with glow effects |
 | Footer | `Footer.tsx` | Links & info |
 
 ---
@@ -169,6 +195,15 @@ This project is built on the Finwise template (MIT License). Modify and use as n
 
 ---
 
+## Recent Updates
+
+- **Navigation** - Smooth scroll on anchor links only (no scroll lag)
+- **Hero** - Added floating animations and particle effects
+- **Stats** - Count-up animation on scroll
+- **Logos** - Morocco cities section with animated flag
+- **CTA** - Glow pulse and radial gradient animations
+- **FAQ** - Smooth accordion with hover effects
+
 ## Contact
 
-For questions or support, reach out to the Doo.ma team.
+For questions or support, contact: **contact@doo.ma**

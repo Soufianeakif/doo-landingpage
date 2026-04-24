@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Transition } from '@headlessui/react';
 import { HiOutlineXMark, HiBars3 } from 'react-icons/hi2';
 import Image from 'next/image';
@@ -18,6 +18,32 @@ const Header: React.FC = () => {
         setIsOpen(!isOpen);
     };
 
+    // Smooth scroll handler for anchor links
+    const handleSmoothScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        // Only handle anchor links (starting with #)
+        if (href.startsWith('#')) {
+            e.preventDefault();
+            const targetId = href.substring(1);
+            const element = document.getElementById(targetId);
+            
+            if (element) {
+                const headerOffset = 80; // Account for fixed header
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+            
+            // Close mobile menu if open
+            if (isOpen) {
+                setIsOpen(false);
+            }
+        }
+    }, [isOpen]);
+
     return (
         <header className="bg-transparent fixed top-0 left-0 right-0 md:absolute z-50 mx-auto w-full">
             <Container className="!px-0">
@@ -31,13 +57,21 @@ const Header: React.FC = () => {
                     <ul className="hidden md:flex space-x-6">
                         {menuItems.map(item => (
                             <li key={item.text}>
-                                <Link href={item.url} className="text-foreground hover:text-foreground-accent transition-colors">
+                                <Link 
+                                    href={item.url} 
+                                    className="text-foreground hover:text-foreground-accent transition-colors"
+                                    onClick={(e) => handleSmoothScroll(e, item.url)}
+                                >
                                     {item.text}
                                 </Link>
                             </li>
                         ))}
                         <li>
-                            <Link href="#cta" className="text-white bg-[#FA5F0E] hover:bg-[#f47d42] px-8 py-3 rounded-full transition-colors">
+                            <Link 
+                                href="#cta" 
+                                className="text-white bg-[#FA5F0E] hover:bg-[#f47d42] px-8 py-3 rounded-full transition-colors"
+                                onClick={(e) => handleSmoothScroll(e, '#cta')}
+                            >
                                 Download
                             </Link>
                         </li>
@@ -77,13 +111,21 @@ const Header: React.FC = () => {
                     <ul className="flex flex-col space-y-4 pt-1 pb-6 px-6">
                         {menuItems.map(item => (
                             <li key={item.text}>
-                                <Link href={item.url} className="text-foreground hover:text-primary block" onClick={toggleMenu}>
+                                <Link 
+                                    href={item.url} 
+                                    className="text-foreground hover:text-primary block" 
+                                    onClick={(e) => handleSmoothScroll(e, item.url)}
+                                >
                                     {item.text}
                                 </Link>
                             </li>
                         ))}
                         <li>
-                            <Link href="#cta" className="text-black bg-[#FA5F0E] hover:bg-[#f47d42] px-5 py-2 rounded-full block w-fit" onClick={toggleMenu}>
+                            <Link 
+                                href="#cta" 
+                                className="text-black bg-[#FA5F0E] hover:bg-[#f47d42] px-5 py-2 rounded-full block w-fit" 
+                                onClick={(e) => handleSmoothScroll(e, '#cta')}
+                            >
                                 Download
                             </Link>
                         </li>
