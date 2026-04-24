@@ -1,40 +1,39 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fnexi-launch%2Ffinwise-landing-page)
+# Doo.ma - Home Services in One Click
 
-# Finwise - Next.js + Tailwind Landing Page Template
+**Doo.ma** is Morocco's premier on-demand platform connecting customers with trusted professionals for home services including plumbing, electricity, cleaning, and more.
 
-Finwise is a lightweight, easily configurable, and customizable **Next.js** and **Tailwind CSS** landing page template. It’s built to be adaptable, performant, and perfect for any product launch, portfolio, or promotional site.
-
-Try out the demo here: [https://finwise-omega.vercel.app](https://finwise-omega.vercel.app).
-
-Please check out the documentation below to get started.
+> **"Nta clicki, o hna ndiro!"** - You click, we handle it!
 
 ---
 
-## Features
+## Tech Stack
 
-- **Next.js** app router with **TypeScript**
-- **Tailwind CSS** v3 for flexible styling customization
-- Smooth transitions powered by **Framer Motion**
-- Built-in **font optimization** with [next/font](https://nextjs.org/docs/app/api-reference/components/font)
-- Automatic **image optimization** via [next/image](https://nextjs.org/docs/app/building-your-application/optimizing/images)
-- Access to **31+ icon packs** via [React Icons](https://react-icons.github.io/react-icons/)
-- Near-perfect **Lighthouse score**
-- Modular, responsive, and **scalable components**
-- **Free lifetime updates**
+- **Next.js 14** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first styling
+- **Framer Motion** - Smooth animations and transitions
+- **React Icons** - Comprehensive icon library
+- **Headless UI** - Accessible UI components
 
 ---
 
-## Sections
+## Project Structure
 
-- Hero
-- Partners or Clients Logos
-- Features
-- Pricing
-- Testimonials
-- FAQ
-- Statistics
-- CTA
-- Footer
+```
+src/
+├── app/                 # Next.js app router pages
+├── components/          # Reusable React components
+│   ├── Benefits/       # Features section
+│   ├── Pricing/        # Pricing plans
+│   └── ...
+├── data/               # Content and configuration
+│   ├── siteDetails.ts  # Site metadata
+│   ├── benefits.tsx    # Features data
+│   ├── stats.tsx       # Statistics data
+│   └── ...
+├── hooks/              # Custom React hooks
+└── types/              # TypeScript type definitions
+```
 
 ---
 
@@ -42,63 +41,134 @@ Please check out the documentation below to get started.
 
 ### Prerequisites
 
-Before starting, make sure you have the following installed:
+- Node.js 18+ 
+- npm 8+
 
-- **Node.js**: Version 18 or later
-- **npm**: Version 8 or later (bundled with Node.js)
-- **Code editor**: [VS Code](https://code.visualstudio.com/) is recommended.
+### Installation
 
-### Steps
+```bash
+# Install dependencies
+npm install
 
-1. **Install dependencies**: Run `npm install`
-2. **Run the development server**: `npm run dev`
-3. **View your project**: Open [localhost:3000](http://localhost:3000)
+# Start development server
+npm run dev
 
----
+# Build for production
+npm run build
+```
 
-## Customization
-
-1. **Edit colors**: Update `globals.css` for primary, secondary, background, and accent colors.
-2. **Update site details**: Customize `siteDetails.ts` in `/src/data` to reflect your brand and site info.
-3. **Modify content**: Files in `/src/data` handle data for navigation, features, pricing, testimonials, and more.
-4. **Replace favicon**: Add your icon to `/src/app/favicon.ico`.
-5. **Add images**: Update `public/images` for Open Graph metadata (e.g., `og-image.jpg`, `twitter-image.jpg`).
+Visit [http://localhost:3000](http://localhost:3000) to view the site.
 
 ---
 
-## Deploying on Vercel
+## Available Scripts
 
-The fastest way to deploy Finwise is on [Vercel](https://vercel.com/). Simply click the "Deploy with Vercel" button at the top of this README, or check the [Next.js deployment docs](https://vercel.com/docs/deployments/deployment-methods) for other deployment options.
-
----
-
-## Contributing
-
-Finwise is an open-source project, and we welcome contributions from the community! If you have ideas for new components, designs, layouts, or optimizations, please join us in making Finwise even better.
-
-### How to Contribute
-
-1. **Fork the Repository**: Clone it locally.
-2. **Create a New Branch**: For example, `feature/new-section` or `fix/style-issue`.
-3. **Develop and Test**: Make sure your changes work and don't break existing functionality.
-4. **Submit a Pull Request**: Open a pull request with a clear description of your changes, and we'll review it.
-
-### Ideas for Contributions
-
-- New component sections (team introductions, comparison table, case studies, etc.)
-- Additional page variants (e.g., agency, eCommerce, portfolio layouts)
-- Additional themes
-- Documentation updates, tutorials, or guides
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build production bundle |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
 
 ---
 
-## Community and Support
+## Customization Guide
 
-Join our community discussions on GitHub to share ideas, ask questions, or suggest improvements. Let’s build something amazing together!
+### 1. Site Details
+Update `src/data/siteDetails.ts`:
+```typescript
+export const siteDetails = {
+    siteName: 'Doo.ma',
+    siteUrl: 'https://doo.ma',
+    metadata: {
+        title: 'Doo.ma - Your Home Services in One Click',
+        description: 'Your description here',
+    },
+    // ...
+}
+```
 
+### 2. Content Sections
+Edit files in `src/data/` to customize:
+- `benefits.tsx` - Feature cards content
+- `stats.tsx` - Statistics numbers
+- `testimonials.tsx` - Customer reviews
+- `faq.tsx` - FAQ items
 
---- 
+### 3. Styling
+- Global styles: `src/app/globals.css`
+- Tailwind config: `tailwind.config.ts`
+- Theme colors and fonts can be customized there
+
+### 4. Images & Assets
+- Place images in `public/images/`
+- Update logo: `public/images/logo.png`
+- Favicon: `src/app/favicon.ico`
+
+---
+
+## Environment Variables
+
+Create `.env.local` from `.env.example`:
+
+```bash
+BASE_PATH=                 # Optional: for subpath deployment
+NEXT_PUBLIC_API_URL=       # API endpoint (if applicable)
+```
+
+---
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push to GitHub
+2. Connect repository to [Vercel](https://vercel.com)
+3. Deploy automatically on every push
+
+### Other Platforms
+
+Build output is in `.next/` directory. Configure your platform to use Next.js deployment settings.
+
+---
+
+## Page Sections
+
+| Section | File | Description |
+|---------|------|-------------|
+| Hero | `Hero.tsx` | Main banner with CTA |
+| Logos | `Logos.tsx` | Partner/client logos |
+| Benefits | `Benefits/` | Service features |
+| Testimonials | `Testimonials.tsx` | Customer reviews |
+| FAQ | `FAQ.tsx` | Questions & answers |
+| Stats | `Stats.tsx` | Key metrics |
+| CTA | `CTA.tsx` | Call to action |
+| Footer | `Footer.tsx` | Links & info |
+
+---
+
+## Dependencies
+
+**Production:**
+- next ^14.2.13
+- react ^18
+- framer-motion ^11.11.9
+- react-icons ^5.3.0
+- @headlessui/react ^2.1.8
+
+**Development:**
+- typescript ^5
+- tailwindcss ^3.4.1
+- eslint ^8
+
+---
 
 ## License
 
-This project is open-source and available under the MIT License. Feel free to use, modify, and distribute it for personal or commercial projects.
+This project is built on the Finwise template (MIT License). Modify and use as needed for your project.
+
+---
+
+## Contact
+
+For questions or support, reach out to the Doo.ma team.
