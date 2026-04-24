@@ -2,20 +2,17 @@
 
 import { Link } from '@/i18n/navigation';
 import React, { useState, useCallback } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { Transition } from '@headlessui/react';
 import { HiOutlineXMark, HiBars3 } from 'react-icons/hi2';
 import Image from 'next/image';
 
-
 import Container from './Container';
 import LanguageSwitcher from './LanguageSwitcher';
-import { siteDetails } from '@/data/siteDetails';
 
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const t = useTranslations('nav');
-    const locale = useLocale();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -59,7 +56,7 @@ const Header: React.FC = () => {
                 <nav className="shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-10">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2">
-                        <Image className="text-foreground min-w-fit w-7 h-7" src="/images/logo.png" alt="logo" width={200} height={200} />
+                        <Image className="text-foreground min-w-fit w-7 h-7" src="/images/logo.png" alt="logo" width={200} height={200} priority />
                     </Link>
 
                     {/* Desktop Menu */}

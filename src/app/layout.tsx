@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Source_Sans_3, Manrope } from "next/font/google";
+import Script from 'next/script';
 
 import { siteDetails } from '@/data/siteDetails';
 
@@ -12,11 +13,36 @@ const sourceSans = Source_Sans_3({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: siteDetails.metadata.title,
   description: siteDetails.metadata.description,
+  keywords: ['home services', 'morocco', 'plumber', 'electrician', 'cleaning', 'rabat', 'harhoura', 'salé', 'témara', 'on-demand', ' professionals', 'maâlems'],
+  authors: [{ name: 'AKIF Soufiane' }],
+  creator: 'Doo.ma',
+  publisher: 'Doo.ma',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: siteDetails.siteUrl,
+    languages: {
+      'en': `${siteDetails.siteUrl}/en`,
+      'fr': `${siteDetails.siteUrl}/fr`,
+      'ar': `${siteDetails.siteUrl}/ar`,
+    },
+  },
   openGraph: {
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,
     url: siteDetails.siteUrl,
     type: 'website',
+    locale: 'en_US',
+    siteName: siteDetails.siteName,
     images: [
       {
         url: '/images/og-image.jpg',
@@ -30,7 +56,12 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,
+    site: '@dooma',
+    creator: '@akifsoufiane',
     images: ['/images/twitter-image.jpg'],
+  },
+  verification: {
+    google: 'G-HRBTR3NFNC',
   },
 };
 
@@ -41,6 +72,21 @@ export default function RootLayout({
 }>) {
   return (
     <html>
+      <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-HRBTR3NFNC"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-HRBTR3NFNC');
+          `}
+        </Script>
+      </head>
       <body
         className={`${manrope.className} ${sourceSans.className} antialiased`}
       >

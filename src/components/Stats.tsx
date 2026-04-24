@@ -40,7 +40,13 @@ const useCountUp = (end: number, duration: number = 2, start: boolean = false) =
     return count;
 };
 
-const AnimatedStat = ({ stat, index, t }: { stat: any; index: number; t: any }) => {
+interface StatItem {
+    title: string;
+    icon: React.ReactNode;
+    description: string;
+}
+
+const AnimatedStat = ({ stat, index }: { stat: StatItem; index: number }) => {
     const [isInView, setIsInView] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
     
@@ -50,8 +56,8 @@ const AnimatedStat = ({ stat, index, t }: { stat: any; index: number; t: any }) 
     const targetNumber = hasNumber ? parseInt(numberMatch[1]) : 0;
     const animatedNumber = useCountUp(targetNumber, 2, isInView);
     
-    // Reconstruct title with animated number
-    const animatedTitle = hasNumber 
+    // Reconstruct title with animated number (used below)
+    const displayTitle = hasNumber 
         ? stat.title.replace(/\d+/, animatedNumber.toString())
         : stat.title;
 
@@ -93,7 +99,7 @@ const AnimatedStat = ({ stat, index, t }: { stat: any; index: number; t: any }) 
                 >
                     {stat.icon}
                 </motion.span>
-                <span>{stat.title}</span>
+                <span>{displayTitle}</span>
             </motion.h3>
             <p className="text-foreground-accent">{stat.description}</p>
         </motion.div>
@@ -130,7 +136,7 @@ const Stats: React.FC = () => {
                 viewport={{ once: true, margin: "-100px" }}
             >
                 {stats.map((stat, index) => (
-                    <AnimatedStat key={stat.title} stat={stat} index={index} t={t} />
+                    <AnimatedStat key={stat.title} stat={stat} index={index} />
                 ))}
             </motion.div>
         </section>

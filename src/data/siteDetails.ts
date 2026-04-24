@@ -8,5 +8,5 @@ export const siteDetails = {
     language: 'en-us',
     locale: 'en-US',
     siteLogo: `${process.env.BASE_PATH || ''}/images/logo.png`, // تأكد من وضع اللوجو البرتقالي الجديد في هذا المسار
-    googleAnalyticsId: '', // يمكنك إضافة المعرف الخاص بك لاحقاً لتتبع الزوار من الرباط وهرهورة
+    googleAnalyticsId: 'G-HRBTR3NFNC',
 }

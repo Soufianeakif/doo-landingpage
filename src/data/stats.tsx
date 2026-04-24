@@ -1,4 +1,4 @@
-import { BsFillPeopleFill, BsFillStarFill } from "react-icons/bs";
+import { BsFillStarFill } from "react-icons/bs";
 import { HiOutlineClock } from "react-icons/hi"; // أيقونة للسرعة
 import { MdVerifiedUser } from "react-icons/md"; // أيقونة للموثوقية
 
