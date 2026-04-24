@@ -13,7 +13,7 @@ const PlayStoreButton = ({ dark }: { dark?: boolean }) => {
         <a href={ctaDetails.googlePlayUrl}>
             <button
                 type="button"
-                className={clsx("flex items-center justify-center min-w-[205px] mt-3 px-6 h-14 rounded-full w-full sm:w-fit", { "text-white bg-foreground": dark, "text-foreground bg-white": !dark })}
+                className={clsx("flex items-center justify-center min-w-[205px] mt-3 px-6 h-14 rounded-full w-full sm:w-fit transition-all duration-300 hover:scale-105 hover:shadow-lg", { "text-white bg-foreground hover:shadow-gray-500/25": dark, "text-foreground bg-white hover:shadow-orange-500/20": !dark })}
             >
                 <div className="ms-3 me-3">
                     <svg viewBox="30 336.7 120.9 129.2" width="30">
