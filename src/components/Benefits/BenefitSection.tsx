@@ -100,7 +100,15 @@ const BenefitSection: React.FC<Props> = ({ benefitKey, bullets, imageSrc, revers
 
                 <div className="mt-5 lg:mt-0">
                     <div className="w-fit flex justify-center">
-                        <Image src={imageSrc} alt={t('title')} width="384" height="762" quality={100} />
+                        <Image 
+                            src={imageSrc} 
+                            alt={t('title')} 
+                            width={384} 
+                            height={762} 
+                            quality={85}
+                            sizes="(max-width: 768px) 100vw, 384px"
+                            className="w-full max-w-[384px] h-auto"
+                        />
                     </div>
                 </div>
             </motion.div>

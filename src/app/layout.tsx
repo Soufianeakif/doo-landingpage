@@ -72,8 +72,9 @@ export default function RootLayout({
   return (
     <html>
       <head>
-        {/* Preload critical CSS */}
-        <link rel="preload" href="/_next/static/css/app/layout.css" as="style" />
+        {/* Preload critical font files to reduce render blocking */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
         {/* Google Analytics - deferred to reduce main-thread work */}
         <Script

@@ -141,12 +141,11 @@ const Hero: React.FC = () => {
                         src="/images/hero-mockup.webp"
                         width={384}
                         height={340}
-                        quality={100}
+                        quality={85}
                         sizes="(max-width: 768px) 100vw, 384px"
                         priority={true}
-                        unoptimized={true}
                         alt="app mockup"
-                        className='relative mt-12 md:mt-16 mx-auto z-10'
+                        className='relative mt-12 md:mt-16 mx-auto z-10 w-full max-w-[384px] h-auto'
                     />
                 </motion.div>
             </motion.div>

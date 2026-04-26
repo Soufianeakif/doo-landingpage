@@ -27,6 +27,13 @@ const nextConfig = {
         removeConsole: process.env.NODE_ENV === 'production',
     },
     
+    // SWC transpilation targets (must match browserslist)
+    swcOptions: {
+        jsc: {
+            target: 'es2020',
+        },
+    },
+    
     // Reduce bundle size
     webpack: (config, { isServer }) => {
         // Optimize bundle splitting
