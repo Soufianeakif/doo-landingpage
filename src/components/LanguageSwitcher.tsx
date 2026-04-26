@@ -49,7 +49,11 @@ const flags: Record<Locale, React.FC> = {
     ar: MAFlag,
 };
 
-const LanguageSwitcher: React.FC = () => {
+interface LanguageSwitcherProps {
+    mobile?: boolean;
+}
+
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ mobile = false }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isPending, startTransition] = useTransition();
     const locale = useLocale();
@@ -88,27 +92,35 @@ const LanguageSwitcher: React.FC = () => {
             <motion.button
                 onClick={() => setIsOpen(!isOpen)}
                 disabled={isPending}
-                className="flex items-center gap-2 px-3 py-2 rounded-full bg-white border border-gray-200 hover:border-[#FA5F0E] hover:shadow-md transition-all disabled:opacity-50"
+                className={`flex items-center rounded-full bg-white border border-gray-200 hover:border-[#FA5F0E] hover:shadow-md transition-all disabled:opacity-50 ${
+                    mobile ? 'w-10 h-10 justify-center p-0' : 'gap-2 px-3 py-2'
+                }`}
                 whileHover={{ scale: isPending ? 1 : 1.02 }}
                 whileTap={{ scale: isPending ? 1 : 0.98 }}
             >
-                {React.createElement(flags[locale as Locale])}
-                <span className="hidden sm:inline text-sm font-medium text-foreground">
-                    {currentLocaleLabel.label}
+                <span className={mobile ? 'scale-75' : ''}>
+                    {React.createElement(flags[locale as Locale])}
                 </span>
-                {isPending ? (
-                    <motion.span
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                        className="w-4 h-4 border-2 border-foreground border-t-transparent rounded-full"
-                    />
-                ) : (
-                    <motion.span
-                        animate={{ rotate: isOpen ? 180 : 0 }}
-                        transition={{ duration: 0.2 }}
-                    >
-                        <HiChevronDown className="w-4 h-4 text-foreground" />
-                    </motion.span>
+                {!mobile && (
+                    <>
+                        <span className="hidden sm:inline text-sm font-medium text-foreground">
+                            {currentLocaleLabel.label}
+                        </span>
+                        {isPending ? (
+                            <motion.span
+                                animate={{ rotate: 360 }}
+                                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                                className="w-4 h-4 border-2 border-foreground border-t-transparent rounded-full"
+                            />
+                        ) : (
+                            <motion.span
+                                animate={{ rotate: isOpen ? 180 : 0 }}
+                                transition={{ duration: 0.2 }}
+                            >
+                                <HiChevronDown className="w-4 h-4 text-foreground" />
+                            </motion.span>
+                        )}
+                    </>
                 )}
             </motion.button>
 

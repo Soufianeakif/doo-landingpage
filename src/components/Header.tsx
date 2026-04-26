@@ -86,8 +86,10 @@ const Header: React.FC = () => {
                         </li>
                     </ul>
 
-                    {/* Mobile Menu Button */}
-                    <div className="md:hidden flex items-center">
+                    {/* Mobile: Language Switcher + Burger Button */}
+                    <div className="md:hidden flex items-center gap-2">
+                        <LanguageSwitcher mobile />
+                        
                         <button
                             onClick={toggleMenu}
                             type="button"
