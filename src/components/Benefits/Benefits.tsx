@@ -30,7 +30,7 @@ const Benefits: React.FC = () => {
         },
         {
             key: 'payments',
-            imageSrc: "/images/mockup-1.webp",
+            imageSrc: "/images/mockup-3.webp",
             reversed: false,
             bullets: [
                 { icon: <FiSmartphone size={26} />, key: 'upfront' },
