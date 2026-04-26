@@ -1,13 +1,17 @@
+import dynamic from 'next/dynamic';
+
 import Hero from "@/components/Hero";
-import Testimonials from "@/components/Testimonials";
-import FAQ from "@/components/FAQ";
 import Logos from "@/components/Logos";
 import Benefits from "@/components/Benefits/Benefits";
 import Container from "@/components/Container";
 import Section from "@/components/Section";
-import Stats from "@/components/Stats";
-import CTA from "@/components/CTA";
-import CEO from "@/components/CEO";
+
+// Lazy load below-fold components to reduce initial JS
+const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: true });
+const FAQ = dynamic(() => import("@/components/FAQ"), { ssr: true });
+const Stats = dynamic(() => import("@/components/Stats"), { ssr: true });
+const CEO = dynamic(() => import("@/components/CEO"), { ssr: true });
+const CTA = dynamic(() => import("@/components/CTA"), { ssr: true });
 
 const HomePage: React.FC = () => {
   return (

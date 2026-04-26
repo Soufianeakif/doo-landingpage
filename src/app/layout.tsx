@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { GoogleAnalytics } from '@next/third-parties/google';
 import { Source_Sans_3, Manrope } from "next/font/google";
 import Script from 'next/script';
 
@@ -73,24 +72,26 @@ export default function RootLayout({
   return (
     <html>
       <head>
-        {/* Google tag (gtag.js) */}
+        {/* Preload critical CSS */}
+        <link rel="preload" href="/_next/static/css/app/layout.css" as="style" />
+        
+        {/* Google Analytics - deferred to reduce main-thread work */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-HRBTR3NFNC"
-          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${siteDetails.googleAnalyticsId}`}
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-HRBTR3NFNC');
+            gtag('config', '${siteDetails.googleAnalyticsId}');
           `}
         </Script>
       </head>
       <body
         className={`${manrope.className} ${sourceSans.className} antialiased`}
       >
-        {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
         {children}
       </body>
     </html>
