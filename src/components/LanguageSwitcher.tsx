@@ -92,6 +92,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ mobile = false }) =
             <motion.button
                 onClick={() => setIsOpen(!isOpen)}
                 disabled={isPending}
+                aria-label={`Change language, currently ${currentLocaleLabel.label}`}
                 className={`flex items-center rounded-full bg-white border border-gray-200 hover:border-[#FA5F0E] hover:shadow-md transition-all disabled:opacity-50 ${
                     mobile ? 'w-10 h-10 justify-center p-0' : 'gap-2 px-3 py-2'
                 }`}

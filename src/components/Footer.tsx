@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
                     </p>
                 </div>
                 <div>
-                    <h4 className="text-lg font-semibold mb-4">{t('quickLinks')}</h4>
+                    <h2 className="text-lg font-semibold mb-4">{t('quickLinks')}</h2>
                     <ul className="text-foreground-accent">
                         <li className="mb-2">
                             <Link href="#features" className="hover:text-foreground">{navT('features')}</Link>
@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
                     </ul>
                 </div>
                 <div>
-                    <h4 className="text-lg font-semibold mb-4">{t('contact')}</h4>
+                    <h2 className="text-lg font-semibold mb-4">{t('contact')}</h2>
 
                     {footerDetails.email && <a href={`mailto:${footerDetails.email}`}  className="block text-foreground-accent hover:text-foreground">{footerDetails.email}</a>}
 
