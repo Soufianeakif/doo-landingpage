@@ -31,7 +31,7 @@ const Logos: React.FC = () => {
                 >
                     <Image 
                         src="https://cdn-icons-png.flaticon.com/512/5372/5372851.png" 
-                        alt="Morocco flag" 
+                        alt="Morocco flag showing Doo availability in Rabat, Salé, Témara and Harhoura"
                         width={60} 
                         height={60}
                         className="drop-shadow-lg"

@@ -96,6 +96,66 @@
     "quickLinks": "Liens Rapides",
     "contact": "Contact"
   },
+  "services": {
+    "title": "Réservez Tout Service Domestique en Quelques Minutes",
+    "subtitle": "Du nettoyage quotidien aux réparations d'urgence, Doo vous connecte avec le bon professionnel pour chaque besoin.",
+    "cleaning": {
+      "name": "Nettoyage",
+      "description": "Nettoyage régulier, en profondeur et pour déménagement — pour une maison impeccable."
+    },
+    "plumbing": {
+      "name": "Plomberie",
+      "description": "Réparations de fuites, installations et plomberie d'urgence par des pros certifiés."
+    },
+    "electrical": {
+      "name": "Électricité",
+      "description": "Réparations, installations et contrôles de sécurité par des électriciens agréés."
+    },
+    "painting": {
+      "name": "Peinture",
+      "description": "Peinture intérieure, extérieure et retouches pour rafraîchir chaque pièce de votre maison."
+    },
+    "handyman": {
+      "name": "Homme à Tout faire",
+      "description": "Montage de meubles, réparations, fixations et petits travaux réalisés avec soin."
+    },
+    "gardening": {
+      "name": "Jardinage",
+      "description": "Entretien de pelouse, taille et nettoyage complet pour un espace extérieur magnifique."
+    }
+  },
+  "howItWorks": {
+    "title": "3 Étapes Simples pour Obtenir de l'Aide à Domicile",
+    "subtitle": "Faire venir un professionnel de confiance chez vous n'a jamais été aussi simple.",
+    "step1": {
+      "title": "Choisissez Votre Service",
+      "description": "Parcourez notre gamme de services domestiques et sélectionnez ce dont vous avez besoin — du nettoyage aux réparations d'urgence."
+    },
+    "step2": {
+      "title": "Choisissez un Créneau & Voir le Prix",
+      "description": "Planifiez une visite à votre convenance et voyez le coût estimé avant de confirmer. Sans frais cachés, jamais."
+    },
+    "step3": {
+      "title": "Un Pro Vérifié Arrive — Suivez-le en Direct",
+      "description": "Suivez l'arrivée de votre professionnel en temps réel sur la carte. Sachez exactement quand il sera à votre porte."
+    }
+  },
+  "keyFeatures": {
+    "title": "Pourquoi les Propriétaires Choisissent Doo",
+    "subtitle": "Conçu pour la confiance, la transparence et une tranquillité d'esprit totale.",
+    "verified": {
+      "title": "Professionnels Vérifiés",
+      "description": "Chaque prestataire sur Doo est vérifié, noté et évalué par la communauté. Votre maison est entre de bonnes mains."
+    },
+    "pricing": {
+      "title": "Prix Transparent",
+      "description": "Voyez le coût estimé avant de réserver. Pas de frais cachés, pas de surprises — juste des prix honnêtes et transparents."
+    },
+    "tracking": {
+      "title": "Suivi en Temps Réel",
+      "description": "Sachez exactement quand votre professionnel arrivera. Suivez sa position en direct sur la carte depuis l'application."
+    }
+  },
   "buttons": {
     "appStore": "Télécharger sur",
     "playStore": "DISPONIBLE SUR"

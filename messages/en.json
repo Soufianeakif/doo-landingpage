@@ -96,6 +96,66 @@
     "quickLinks": "Quick Links",
     "contact": "Contact"
   },
+  "services": {
+    "title": "Book Any Home Service in Minutes",
+    "subtitle": "From daily cleaning to emergency repairs, Doo connects you with the right professional for every home need.",
+    "cleaning": {
+      "name": "Cleaning",
+      "description": "Regular, deep clean, and move-in/out cleaning services for a spotless home."
+    },
+    "plumbing": {
+      "name": "Plumbing",
+      "description": "Leak repairs, installations, and emergency plumbing handled by certified pros."
+    },
+    "electrical": {
+      "name": "Electrical",
+      "description": "Repairs, fittings, and safety checks by licensed electricians you can trust."
+    },
+    "painting": {
+      "name": "Painting",
+      "description": "Interior, exterior, and touch-up painting to refresh any room in your home."
+    },
+    "handyman": {
+      "name": "Handyman",
+      "description": "Furniture assembly, repairs, mounting, and general fix-it tasks done right."
+    },
+    "gardening": {
+      "name": "Gardening",
+      "description": "Lawn care, trimming, and full garden cleanup to keep your outdoor space beautiful."
+    }
+  },
+  "howItWorks": {
+    "title": "3 Simple Steps to Get Help at Home",
+    "subtitle": "Getting a trusted professional to your door has never been easier.",
+    "step1": {
+      "title": "Choose Your Service",
+      "description": "Browse our range of home services and select exactly what you need — from cleaning to emergency repairs."
+    },
+    "step2": {
+      "title": "Pick a Time & See Upfront Price",
+      "description": "Schedule a visit at your convenience and see the estimated cost before you confirm. No hidden fees, ever."
+    },
+    "step3": {
+      "title": "A Verified Pro Arrives — Track Them Live",
+      "description": "Watch your professional's arrival in real time on the map. Know exactly when they'll be at your door."
+    }
+  },
+  "keyFeatures": {
+    "title": "Why Homeowners Choose Doo",
+    "subtitle": "Built for trust, transparency, and total peace of mind.",
+    "verified": {
+      "title": "Verified Professionals",
+      "description": "Every provider on Doo is background-checked, rated, and reviewed by the community. Your home is in safe hands."
+    },
+    "pricing": {
+      "title": "Upfront Pricing",
+      "description": "See the estimated cost before you book. No hidden fees, no surprises — just honest, transparent pricing every time."
+    },
+    "tracking": {
+      "title": "Real-Time Tracking",
+      "description": "Know exactly when your professional will arrive. Track their location live on the map directly from the app."
+    }
+  },
   "buttons": {
     "appStore": "Download on the",
     "playStore": "GET IT ON"

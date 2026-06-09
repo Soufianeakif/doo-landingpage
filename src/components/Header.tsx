@@ -84,7 +84,7 @@ const Header: React.FC = () => {
                 }`}>
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2">
-                        <Image className="text-foreground min-w-fit w-7 h-7" src="/images/logo.png" alt="logo" width={200} height={200} priority />
+                        <Image className="text-foreground min-w-fit w-7 h-7" src="/images/logo.png" alt="Doo home services logo" width={200} height={200} priority />
                     </Link>
 
                     {/* Desktop Menu */}

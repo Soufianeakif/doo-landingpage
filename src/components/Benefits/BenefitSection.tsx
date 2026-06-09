@@ -100,9 +100,9 @@ const BenefitSection: React.FC<Props> = ({ benefitKey, bullets, imageSrc, revers
 
                 <div className="mt-5 lg:mt-0">
                     <div className="w-fit flex justify-center">
-                        <Image 
-                            src={imageSrc} 
-                            alt={t('title')} 
+                        <Image
+                            src={imageSrc}
+                            alt={`Doo app ${t('title').toLowerCase()} screen`}
                             width={384} 
                             height={762} 
                             quality={85}

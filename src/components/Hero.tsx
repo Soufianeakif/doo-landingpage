@@ -171,7 +171,7 @@ const Hero: React.FC = () => {
                             quality={85}
                             sizes="(max-width: 768px) 100vw, 384px"
                             priority={true}
-                            alt="app mockup"
+                            alt="Doo home services booking app"
                             className='relative mt-12 md:mt-16 mx-auto z-10 w-full max-w-[384px] h-auto drop-shadow-2xl'
                         />
                     </motion.div>

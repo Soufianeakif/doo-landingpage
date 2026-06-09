@@ -2,6 +2,9 @@ import dynamic from 'next/dynamic';
 
 import Hero from "@/components/Hero";
 import Logos from "@/components/Logos";
+import Services from "@/components/Services";
+import HowItWorks from "@/components/HowItWorks";
+import KeyFeatures from "@/components/KeyFeatures";
 import Benefits from "@/components/Benefits/Benefits";
 import Container from "@/components/Container";
 import Section from "@/components/Section";
@@ -19,6 +22,12 @@ const HomePage: React.FC = () => {
       <Hero />
       <Logos />
       <Container>
+        <Services />
+
+        <HowItWorks />
+
+        <KeyFeatures />
+
         <Benefits />
 
         <Section
@@ -34,7 +43,7 @@ const HomePage: React.FC = () => {
         <Stats />
 
         <CEO />
-        
+
         <CTA />
       </Container>
     </>

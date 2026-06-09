@@ -78,7 +78,7 @@ const Testimonials: React.FC = () => {
                             >
                                 <Image
                                     src={testimonial.avatar}
-                                    alt={`${testimonial.name} avatar`}
+                                    alt={`${testimonial.name}, Doo home services review`}
                                     width={50}
                                     height={50}
                                     className="rounded-full shadow-md"

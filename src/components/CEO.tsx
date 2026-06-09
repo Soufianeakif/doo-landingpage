@@ -40,7 +40,7 @@ const CEO: React.FC = () => {
                         <div className="relative w-48 h-48 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-xl ring-4 ring-white">
                             <Image
                                 src="/images/akifsoufiane.jpg"
-                                alt={t('name')}
+                                alt="AKIF Soufiane, Doo founder and CEO"
                                 fill
                                 className="object-cover"
                             />
