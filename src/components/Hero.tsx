@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
 import AppStoreButton from './AppStoreButton';
@@ -31,13 +31,18 @@ const itemVariants = {
     },
 };
 
-const floatAnimation = {
-    y: [-10, 10, -10],
-    transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut",
-    },
+const wordVariants = {
+    hidden: { opacity: 0, y: 20, filter: 'blur(8px)' },
+    visible: (i: number) => ({
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        transition: {
+            delay: i * 0.08,
+            duration: 0.5,
+            ease: [0.25, 0.46, 0.45, 0.94],
+        },
+    }),
 };
 
 const glowPulse = {
@@ -52,13 +57,18 @@ const glowPulse = {
 
 const Hero: React.FC = () => {
     const t = useTranslations('hero');
+    const { scrollY } = useScroll();
+    const mockupY = useTransform(scrollY, [0, 400], [0, -60]);
+    const mockupRotate = useTransform(scrollY, [0, 400], [0, -2]);
+    const heading = t('heading');
+
     return (
         <section
             id="hero"
             className="relative flex items-center justify-center pb-0 pt-32 md:pt-40 px-5 overflow-hidden"
         >
             {/* Animated Background */}
-            <motion.div 
+            <motion.div
                 className="absolute left-0 top-0 bottom-0 -z-10 w-full"
                 animate={glowPulse}
             >
@@ -67,7 +77,7 @@ const Hero: React.FC = () => {
             </motion.div>
 
             {/* Animated gradient overlay */}
-            <motion.div 
+            <motion.div
                 className="absolute left-0 right-0 bottom-0 backdrop-blur-[2px] h-40 bg-gradient-to-b from-transparent via-[rgba(233,238,255,0.5)] to-[rgba(202,208,230,0.5)]"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -77,50 +87,60 @@ const Hero: React.FC = () => {
 
             {/* Floating particles */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {[...Array(6)].map((_, i) => (
+                {[...Array(8)].map((_, i) => (
                     <motion.div
                         key={i}
-                        className="absolute w-2 h-2 rounded-full bg-[#FA5F0E]/20"
+                        className={`absolute rounded-full ${i % 3 === 0 ? 'w-3 h-3 bg-[#FA5F0E]/15' : 'w-2 h-2 bg-[#FA5F0E]/20'}`}
                         style={{
-                            left: `${15 + i * 15}%`,
-                            top: `${20 + (i % 3) * 25}%`,
+                            left: `${10 + i * 12}%`,
+                            top: `${15 + (i % 4) * 22}%`,
                         }}
                         animate={{
-                            y: [0, -30, 0],
-                            x: [0, 10, 0],
-                            opacity: [0.3, 0.7, 0.3],
+                            y: [0, -40 - i * 5, 0],
+                            x: [0, i % 2 === 0 ? 15 : -15, 0],
+                            opacity: [0.2, 0.6, 0.2],
+                            scale: [1, 1.3, 1],
                         }}
                         transition={{
-                            duration: 3 + i * 0.5,
+                            duration: 4 + i * 0.7,
                             repeat: Infinity,
-                            delay: i * 0.3,
+                            delay: i * 0.4,
                             ease: "easeInOut",
                         }}
                     />
                 ))}
             </div>
 
-            <motion.div 
+            <motion.div
                 className="text-center"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
             >
-                <motion.h1 
-                    className="text-4xl md:text-6xl md:leading-tight font-bold text-foreground max-w-lg md:max-w-2xl mx-auto"
-                    variants={itemVariants}
-                >
-                    {t('heading')}
-                </motion.h1>
-                
-                <motion.p 
+                {/* Word-by-word animated heading */}
+                <h1 className="text-4xl md:text-6xl md:leading-tight font-bold text-foreground max-w-lg md:max-w-2xl mx-auto flex flex-wrap justify-center gap-x-[0.3em]">
+                    {heading.split(' ').map((word, i) => (
+                        <motion.span
+                            key={i}
+                            className="inline-block"
+                            variants={wordVariants}
+                            custom={i}
+                            initial="hidden"
+                            animate="visible"
+                        >
+                            {word}
+                        </motion.span>
+                    ))}
+                </h1>
+
+                <motion.p
                     className="mt-4 text-foreground max-w-lg mx-auto"
                     variants={itemVariants}
                 >
                     {t('subheading')}
                 </motion.p>
-                
-                <motion.div 
+
+                <motion.div
                     className="mt-6 flex flex-col sm:flex-row items-center sm:gap-4 w-fit mx-auto"
                     variants={itemVariants}
                     whileHover={{ scale: 1.02 }}
@@ -130,23 +150,62 @@ const Hero: React.FC = () => {
                     <PlayStoreButton dark />
                 </motion.div>
 
+                {/* Parallax mockup */}
                 <motion.div
-                    animate={floatAnimation}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
+                    style={{ y: mockupY, rotate: mockupRotate }}
                 >
-                    <Image
-                        src="/images/hero-mockup.webp"
-                        width={384}
-                        height={340}
-                        quality={85}
-                        sizes="(max-width: 768px) 100vw, 384px"
-                        priority={true}
-                        alt="app mockup"
-                        className='relative mt-12 md:mt-16 mx-auto z-10 w-full max-w-[384px] h-auto'
-                    />
+                    <motion.div
+                        animate={{
+                            y: [-10, 10, -10],
+                        }}
+                        transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                        }}
+                    >
+                        <Image
+                            src="/images/hero-mockup.webp"
+                            width={384}
+                            height={340}
+                            quality={85}
+                            sizes="(max-width: 768px) 100vw, 384px"
+                            priority={true}
+                            alt="app mockup"
+                            className='relative mt-12 md:mt-16 mx-auto z-10 w-full max-w-[384px] h-auto drop-shadow-2xl'
+                        />
+                    </motion.div>
+                </motion.div>
+
+                {/* Scroll down indicator */}
+                <motion.div
+                    className="mt-8 mb-4 flex flex-col items-center gap-1 cursor-pointer"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.5, duration: 0.8 }}
+                    onClick={() => {
+                        const logos = document.getElementById('logos');
+                        logos?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                >
+                    <motion.span
+                        className="text-xs text-foreground-accent tracking-widest uppercase"
+                        animate={{ opacity: [0.5, 1, 0.5] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                    >
+                        Scroll
+                    </motion.span>
+                    <motion.div
+                        className="w-6 h-10 rounded-full border-2 border-foreground-accent/40 flex justify-center pt-2"
+                        animate={{ borderColor: ['rgba(69,69,69,0.4)', 'rgba(250,95,14,0.6)', 'rgba(69,69,69,0.4)'] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                    >
+                        <motion.div
+                            className="w-1.5 h-1.5 rounded-full bg-[#FA5F0E]"
+                            animate={{ y: [0, 16, 0], opacity: [1, 0.3, 1] }}
+                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                        />
+                    </motion.div>
                 </motion.div>
             </motion.div>
         </section>

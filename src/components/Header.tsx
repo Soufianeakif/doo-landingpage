@@ -1,18 +1,38 @@
 'use client';
 
 import { Link } from '@/i18n/navigation';
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { Transition } from '@headlessui/react';
 import { HiOutlineXMark, HiBars3 } from 'react-icons/hi2';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import Image from 'next/image';
 
 import Container from './Container';
 import LanguageSwitcher from './LanguageSwitcher';
 
+const ScrollProgress: React.FC = () => {
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
+
+    return (
+        <motion.div
+            className="fixed top-0 left-0 right-0 h-[3px] bg-[#FA5F0E] z-[60] origin-left"
+            style={{ scaleX }}
+        />
+    );
+};
+
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const t = useTranslations('nav');
+
+    useEffect(() => {
+        const handleScroll = () => setScrolled(window.scrollY > 50);
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -51,9 +71,17 @@ const Header: React.FC = () => {
     }, [isOpen]);
 
     return (
-        <header className="bg-transparent fixed top-0 left-0 right-0 md:absolute z-50 mx-auto w-full">
+        <>
+        <ScrollProgress />
+        <header className={`fixed top-0 left-0 right-0 z-50 mx-auto w-full transition-all duration-300 ${
+            scrolled
+                ? 'bg-white/90 backdrop-blur-md shadow-md py-0'
+                : 'bg-transparent md:absolute'
+        }`}>
             <Container className="!px-0">
-                <nav className="shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:py-10">
+                <nav className={`mx-auto flex justify-between items-center px-5 transition-all duration-300 ${
+                    scrolled ? 'py-2' : 'shadow-md md:shadow-none bg-white md:bg-transparent py-2 md:py-10'
+                }`}>
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2">
                         <Image className="text-foreground min-w-fit w-7 h-7" src="/images/logo.png" alt="logo" width={200} height={200} priority />
@@ -73,9 +101,9 @@ const Header: React.FC = () => {
                             </li>
                         ))}
                         <li>
-                            <Link 
-                                href="#cta" 
-                                className="text-white bg-[#FA5F0E] hover:bg-[#f47d42] px-8 py-3 rounded-full transition-colors"
+                            <Link
+                                href="#cta"
+                                className="text-white bg-[#FA5F0E] hover:bg-[#f47d42] px-8 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(250,95,14,0.4)] hover:scale-105"
                                 onClick={(e) => handleSmoothScroll(e, '#cta')}
                             >
                                 {t('download')}
@@ -147,6 +175,7 @@ const Header: React.FC = () => {
                 </div>
             </Transition>
         </header>
+        </>
     );
 };
 

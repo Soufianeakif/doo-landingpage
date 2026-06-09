@@ -14,8 +14,8 @@ const AppStoreButton = ({ dark }: { dark?: boolean }) => {
             href={ctaDetails.appStoreUrl}
             aria-label="Download on the App Store"
             className={clsx(
-                "flex items-center justify-center min-w-[205px] min-h-[48px] mt-3 px-6 h-14 rounded-full w-full sm:w-fit transition-all duration-300 hover:scale-105 hover:shadow-lg",
-                { "text-white bg-foreground hover:shadow-gray-500/25": dark, "text-foreground bg-white hover:shadow-orange-500/20": !dark }
+                "flex items-center justify-center min-w-[205px] min-h-[48px] mt-3 px-6 h-14 rounded-full w-full sm:w-fit transition-all duration-300 hover:scale-105 hover:shadow-lg group relative overflow-hidden",
+                { "text-white bg-foreground hover:shadow-gray-500/25 hover:shadow-[0_0_25px_rgba(23,23,23,0.3)]": dark, "text-foreground bg-white hover:shadow-orange-500/20 hover:shadow-[0_0_25px_rgba(250,95,14,0.25)]": !dark }
             )}
         >
             <div className="ms-3 me-3">
